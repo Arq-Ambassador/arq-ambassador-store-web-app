@@ -1,13 +1,13 @@
-import React, {Dispatch, useState} from 'react';
+import React, {Dispatch} from 'react';
 import {connect} from "react-redux";
-import {Link, NavLink, Redirect} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import {User} from "../models/user";
-import axios from "axios";
 import {setUser} from "../redux/actions/setUserAction";
+import { authService } from '../axios/hostsInstances';
 
 const Nav = (props: any) => {
     const logout = async () => {
-        await axios.post('logout');
+        await authService.post('logout');
         props.setUser(null);
     }
 

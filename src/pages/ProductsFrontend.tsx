@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import Layout from "../components/Layout";
 import Products from "./Products";
 import {Product} from "../models/product";
-import axios from "axios";
 import {Filters} from "../models/filters";
+import { coreService } from '../axios/hostsInstances';
 
 const ProductsFrontend = () => {
     const [allProducts, setAllProducts] = useState<Product[]>([]);
@@ -19,7 +19,7 @@ const ProductsFrontend = () => {
     useEffect(() => {
         (
             async () => {
-                const {data} = await axios.get('products/frontend');
+                const {data} = await coreService.get('products/frontend');
 
                 setAllProducts(data);
                 setFilteredProducts(data);

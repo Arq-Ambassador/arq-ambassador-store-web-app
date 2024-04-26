@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
+
 import {Product} from "../models/product";
 import {Filters} from "../models/filters";
-import axios from "axios";
+import { CHECKOUT_WEB_APP_URL, coreService } from '../axios/hostsInstances';
 
 const Products = (props: {
     products: Product[],
@@ -50,14 +51,14 @@ const Products = (props: {
 
     const generate = async () => {
         try {
-            const {data} = await axios.post('links', {
+            const {data} = await coreService.post('links', {
                 products: selected
             });
 
             setNotify({
                 show: true,
                 error: false,
-                message: `http://localhost:5000/${data.code}`
+                message: `${CHECKOUT_WEB_APP_URL}/${data.code}`
             });
         } catch (e) {
             setNotify({
@@ -78,7 +79,7 @@ const Products = (props: {
 
     let button;
 
-    if (props.filters.page != props.lastPage) {
+    if (props.filters.page !== props.lastPage) {
         button = (
             <div className="d-flex justify-content-center mt-4">
                 <button className="btn btn-primary" onClick={load}>Load More</button>

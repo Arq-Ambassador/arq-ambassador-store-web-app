@@ -1,11 +1,11 @@
 import React, {Dispatch, useEffect} from 'react';
 import Nav from "./Nav";
 import Header from "./Header";
-import axios from "axios";
 import {useLocation} from "react-router-dom";
 import {User} from "../models/user";
 import {setUser} from "../redux/actions/setUserAction";
 import {connect} from "react-redux";
+import { usersService } from '../axios/hostsInstances';
 
 const Layout = (props: any) => {
     const location = useLocation();
@@ -14,7 +14,7 @@ const Layout = (props: any) => {
         (
             async () => {
                 try {
-                    const {data} = await axios.get('user');
+                    const {data} = await usersService.get('user');
 
                     props.setUser(data);
                 } catch (e) {

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import axios from "axios";
+
 import Layout from "../components/Layout";
+import { CHECKOUT_WEB_APP_URL, coreService } from '../axios/hostsInstances';
 
 const Stats = () => {
     const [stats, setStats] = useState([]);
@@ -8,7 +9,7 @@ const Stats = () => {
     useEffect(() => {
         (
             async () => {
-                const {data} = await axios.get('stats');
+                const {data} = await coreService.get('stats');
 
                 setStats(data);
             }
@@ -29,7 +30,7 @@ const Stats = () => {
                     {stats.map((s: { code: string, revenue: number }, index) => {
                         return (
                             <tr key={index}>
-                                <td>{`http://localhost:5000/${s.code}`}</td>
+                                <td>{`${CHECKOUT_WEB_APP_URL}/${s.code}`}</td>
                                 <td>{s.code}</td>
                                 <td>{s.revenue}</td>
                             </tr>

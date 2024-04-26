@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import Layout from "../components/Layout";
 import Products from "./Products";
-import axios from "axios";
 import {Product} from "../models/product";
 import {Filters} from "../models/filters";
+import { coreService } from '../axios/hostsInstances';
 
 const ProductsBackend = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -31,13 +31,13 @@ const ProductsBackend = () => {
                     arr.push(`page=${filters.page}`);
                 }
 
-                const {data} = await axios.get(`products/backend?${arr.join('&')}`);
+                const {data} = await coreService.get(`products/backend?${arr.join('&')}`);
 
                 setProducts(filters.page === 1 ? data.data : [...products, ...data.data]);
                 setLastPage(data.meta.last_page);
             }
         )()
-    }, [filters]);
+    }, [filters, products]);
 
     return (
         <Layout>
