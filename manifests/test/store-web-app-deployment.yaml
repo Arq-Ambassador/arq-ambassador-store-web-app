@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: store-web-app
+  namespace: ambassador-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: store-web-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: store-web-app
+    spec:
+      containers:
+      - name: store-web-app
+        image: ayalamac/arq-ambassador-store-web-app:v1
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: store-web-app
+        - secretRef:
+            name: store-web-app
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "1"
+            memory: "512Mi"
+        # readinessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 3000
+        # livenessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 3000

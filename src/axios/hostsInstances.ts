@@ -3,8 +3,8 @@ import axios from "axios";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
 
-const HOST_URL = 'http://www.ambassadors.ink/arq';
-export const CHECKOUT_WEB_APP_URL = 'http://www.ambassadors.ink/checkout';
+const HOST_URL = 'http://www.ambassadors.ink';
+export const CHECKOUT_WEB_APP_URL = 'http://checkout.ambassadors.ink';
 
 const authService = axios.create({
   baseURL: `${HOST_URL}/auth/api/ambassador`,

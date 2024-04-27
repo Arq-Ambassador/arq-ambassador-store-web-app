@@ -112,8 +112,7 @@ const Products = (props: {
             {info}
 
             <div className="col-md-12 mb-4 input-group">
-                <input type="text" className="form-control" placeholder="Search"
-                       onChange={e => search(e.target.value)}/>
+                <input type="text" className="form-control" placeholder="Search" onChange={e => search(e.target.value)}/>
 
                 {generateButton}
 

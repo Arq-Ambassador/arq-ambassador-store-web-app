@@ -46,19 +46,19 @@ const Profile = (props: any) => {
                 <div className="mb-3">
                     <label>First Name</label>
                     <input className="form-control"
-                           defaultValue={first_name} onChange={e => setFirstName(e.target.value)}
+                        defaultValue={first_name} onChange={e => setFirstName(e.target.value)}
                     />
                 </div>
                 <div className="mb-3">
                     <label>Last Name</label>
                     <input className="form-control"
-                           defaultValue={last_name} onChange={e => setLastName(e.target.value)}
+                        defaultValue={last_name} onChange={e => setLastName(e.target.value)}
                     />
                 </div>
                 <div className="mb-3">
                     <label>Email</label>
                     <input className="form-control"
-                           defaultValue={email} onChange={e => setEmail(e.target.value)}
+                        defaultValue={email} onChange={e => setEmail(e.target.value)}
                     />
                 </div>
                 <button className="btn btn-outline-secondary" type="submit">Submit</button>
@@ -69,13 +69,13 @@ const Profile = (props: any) => {
                 <div className="mb-3">
                     <label>Password</label>
                     <input className="form-control"
-                           onChange={e => setPassword(e.target.value)}
+                        onChange={e => setPassword(e.target.value)}
                     />
                 </div>
                 <div className="mb-3">
                     <label>Password Confirm</label>
                     <input className="form-control"
-                           onChange={e => setPasswordConfirm(e.target.value)}
+                            onChange={e => setPasswordConfirm(e.target.value)}
                     />
                 </div>
                 <button className="btn btn-outline-secondary" type="submit">Submit</button>
