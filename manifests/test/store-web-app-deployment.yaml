@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: store-web-app
-        image: ayalamac/arq-ambassador-store-web-app:v1
+        image: ayalamac/arq-ambassador-store-web-app:v2
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
