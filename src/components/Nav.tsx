@@ -1,13 +1,19 @@
-import React, {Dispatch} from 'react';
-import {connect} from "react-redux";
-import {Link, NavLink} from 'react-router-dom';
-import {User} from "../models/user";
-import {setUser} from "../redux/actions/setUserAction";
+import React, { Dispatch } from 'react';
+import { connect } from "react-redux";
+import { Link, NavLink } from 'react-router-dom';
+import { User } from "../models/user";
+import { setUser } from "../redux/actions/setUserAction";
 import { authService } from '../axios/hostsInstances';
 
 const Nav = (props: any) => {
     const logout = async () => {
-        await authService.post('logout');
+        const config = {
+            headers: {
+                'Authorization': 'Bearer ' + sessionStorage.getItem('jwt')
+            }
+        }
+        await authService.post('logout', config);
+        sessionStorage.removeItem('jwt');
         props.setUser(null);
     }
 

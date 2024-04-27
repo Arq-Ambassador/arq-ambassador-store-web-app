@@ -1,5 +1,5 @@
-import React, {SyntheticEvent, useState} from 'react';
-import {Redirect} from "react-router-dom";
+import React, { SyntheticEvent, useState } from 'react';
+import { Redirect } from "react-router-dom";
 
 import '../Login.css';
 import { authService } from '../axios/hostsInstances';
@@ -15,13 +15,20 @@ const Login = () => {
         await authService.post('login', {
             email,
             password
-        });
+        }).then((authServiceResponse: any) => {
+            console.log(authServiceResponse)
+            const token = authServiceResponse?.data?.token;
+
+            sessionStorage.setItem("jwt", token);
+        }).catch(error => {
+            console.log({ error });
+        });;
 
         setRedirect(true);
     }
 
     if (redirect) {
-        return <Redirect to={'/'}/>;
+        return <Redirect to={'/'} />;
     }
 
     return (
