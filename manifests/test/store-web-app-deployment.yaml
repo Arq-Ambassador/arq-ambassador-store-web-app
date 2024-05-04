@@ -8,11 +8,6 @@ spec:
   selector:
     matchLabels:
       app: store-web-app
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: 1
   template:
     metadata:
       labels:
@@ -20,27 +15,14 @@ spec:
     spec:
       containers:
       - name: store-web-app
-        image: ayalamac/arq-ambassador-store-web-app:v2
+        image: ayalamac/arq-ambassador-store-web-app:v1
         imagePullPolicy: Always
-        envFrom:
-        - configMapRef:
-            name: store-web-app
-        - secretRef:
-            name: store-web-app
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         resources:
           requests:
-            cpu: "250m"
+            cpu: "50m"
             memory: "256Mi"
           limits:
-            cpu: "1"
-            memory: "512Mi"
-        # readinessProbe:
-        #   httpGet:
-        #     path: /
-        #     port: 3000
-        # livenessProbe:
-        #   httpGet:
-        #     path: /
-        #     port: 3000
+            cpu: "150m"
+            memory: "256Mi"
