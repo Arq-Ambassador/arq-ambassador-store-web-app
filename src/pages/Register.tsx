@@ -1,7 +1,7 @@
 import React, {Component, SyntheticEvent} from 'react';
 import {Redirect} from 'react-router-dom';
 
-import { registrationExperienceService } from '../axios/hostsInstances';
+import { registrationExperienceService, registrationExperienceServiceRoot } from '../axios/hostsInstances';
 
 class Register extends Component {
     firstName = '';
@@ -15,6 +15,9 @@ class Register extends Component {
 
     submit = async (e: SyntheticEvent) => {
         e.preventDefault();
+
+        const respInfo = await registrationExperienceServiceRoot.get('/info');
+        console.log('respInfo', respInfo);
 
         await registrationExperienceService.post('/registrations', {
             first_name: this.firstName,

@@ -1,14 +1,13 @@
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: store-web-app
+  name: store-web-app-store
   namespace: ambassador-test
 spec:
   virtualhost:
-    fqdn: www.ambassadors.ink
+    fqdn: store.ambassadors.ink
   routes:
     - conditions:
       - prefix: /
-      services:
-        - name: store-web-app
-          port: 80
+      requestRedirectPolicy:
+        hostname: www.ambassadors.ink

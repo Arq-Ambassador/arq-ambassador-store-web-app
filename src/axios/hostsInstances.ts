@@ -11,6 +11,11 @@ const authService = axios.create({
   withCredentials: true
 });
 
+const registrationExperienceServiceRoot = axios.create({
+  baseURL: `${GATEWAY_URL}/registration-exp/api`,
+  withCredentials: true
+});
+
 const registrationExperienceService = axios.create({
   baseURL: `${GATEWAY_URL}/registration-exp/api/users`,
   withCredentials: true
@@ -32,7 +37,8 @@ export {
   authService,
   registrationExperienceService,
   usersService,
-  coreService
+  coreService,
+  registrationExperienceServiceRoot
 };
 
 function setJWTToken(axiosInstance: AxiosInstance) {
