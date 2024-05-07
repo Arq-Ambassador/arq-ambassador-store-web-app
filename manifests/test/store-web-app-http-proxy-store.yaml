@@ -9,5 +9,6 @@ spec:
   routes:
     - conditions:
       - prefix: /
-      requestRedirectPolicy:
-        hostname: www.ambassadors.ink
+      services:
+        - name: store-web-app
+          port: 80

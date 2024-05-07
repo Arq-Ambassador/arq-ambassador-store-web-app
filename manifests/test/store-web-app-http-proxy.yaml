@@ -1,7 +1,7 @@
 apiVersion: projectcontour.io/v1
 kind: HTTPProxy
 metadata:
-  name: store-web-app-store
+  name: store-web-app
   namespace: ambassador-test
 spec:
   virtualhost:
@@ -10,4 +10,4 @@ spec:
     - conditions:
       - prefix: /
       requestRedirectPolicy:
-        hostname: www.ambassadors.ink
+        hostname: store.ambassadors.ink
