@@ -12,8 +12,8 @@ const Header = (props: { user: User }) => {
             setTitle(`$${props.user.revenue}`);
             setDescription('You have earned this far');
         } else {
-            setTitle('Welcome');
-            setDescription('Share links to earn money');
+            setTitle('Welcome to Ink Ambassadors');
+            setDescription('Sell digital art and earn real money!');
         }
     }, [props.user]);
 
@@ -29,15 +29,23 @@ const Header = (props: { user: User }) => {
     }
 
     return (
-        <section className="py-5 text-center container bg-dark">
-            <div className="row py-lg-5">
-                <div className="col-lg-6 col-md-8 mx-auto text-white">
-                    <h1 className="fw-light">{title}</h1>
-                    <p className="lead text-white">{description}</p>
-                    {buttons}
+        <div className="video-bg">
+            <section className="py-5 text-center container">
+            
+                <div className="row py-lg-5 hero">
+                    <div className="col-lg-8 col-md-12 mx-auto text-white">
+                        <h1 className="fw-light herofont">{title}</h1>
+                        <p className="lead text-white">{description}</p>
+                        {buttons}
+                    </div>
                 </div>
-            </div>
-        </section>
+
+            </section>
+
+            <video playsInline autoPlay muted loop>
+                <source src="http://static.ambassadors.ink/videos/hero-bg.mp4" type="video/mp4" />
+            </video>
+        </div>
     );
 };
 

@@ -92,7 +92,7 @@ const Products = (props: {
     if (selected.length > 0) {
         generateButton = (
             <div className="input-group-append">
-                <button className="btn btn-info btn-small" onClick={generate}>Generate Link</button>
+                <button className="btn btn-dark btn-small text-white" onClick={generate}>Generate Link</button>
             </div>
         )
     }
@@ -106,6 +106,8 @@ const Products = (props: {
             </div>
         )
     }
+
+    const imagesUrl = 'http://static.ambassadors.ink/images';
 
     return (
         <>
@@ -131,7 +133,7 @@ const Products = (props: {
                         <div className="col" key={product.id} onClick={() => select(product.id)}>
                             <div
                                 className={selected.some(s => s === product.id) ? "card shadow-sm selected" : "card shadow-sm"}>
-                                <img src={product.image} height={300} alt={product.title}/>
+                                <img src={`${imagesUrl}/${product.image}`} height={300} alt={product.title}/>
 
                                 <div className="card-body">
                                     <p className="card-text text-capitalize">{product.title}</p>
