@@ -6,6 +6,8 @@ metadata:
 spec:
   virtualhost:
     fqdn: www.ambassadors.ink
+    tls:
+      secretName: www-ambassador-tls
   routes:
     - conditions:
       - prefix: /

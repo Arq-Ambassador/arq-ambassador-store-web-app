@@ -3,8 +3,8 @@ import axios, { AxiosInstance } from "axios";
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
 
-const GATEWAY_URL = 'http://api.ambassadors.ink';
-export const CHECKOUT_WEB_APP_URL = 'http://checkout.ambassadors.ink';
+const GATEWAY_URL = 'https://api.ambassadors.ink';
+export const CHECKOUT_WEB_APP_URL = 'https://checkout.ambassadors.ink';
 
 const authService = axios.create({
   baseURL: `${GATEWAY_URL}/auth/api/ambassador`,

@@ -107,7 +107,7 @@ const Products = (props: {
         )
     }
 
-    const imagesUrl = 'http://static.ambassadors.ink/images';
+    const imagesUrl = 'https://static.ambassadors.ink/images';
 
     return (
         <>

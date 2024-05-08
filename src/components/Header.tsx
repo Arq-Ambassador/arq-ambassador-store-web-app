@@ -43,7 +43,7 @@ const Header = (props: { user: User }) => {
             </section>
 
             <video playsInline autoPlay muted loop>
-                <source src="http://static.ambassadors.ink/videos/hero-bg.mp4" type="video/mp4" />
+                <source src="https://static.ambassadors.ink/videos/hero-bg.mp4" type="video/mp4" />
             </video>
         </div>
     );
