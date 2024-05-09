@@ -23,7 +23,7 @@ const Profile = (props: any) => {
     const infoSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
 
-        const {data} = await usersService.put(`users/info${id}`, {
+        const {data} = await usersService.put(`users/info/${id}`, {
             first_name,
             last_name,
             email
